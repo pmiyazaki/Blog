@@ -1,6 +1,8 @@
 package com.DigitalHouse.blog.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -9,8 +11,17 @@ public class Postagem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
+    @Size(min=5, max=100)
     private String titulo;
+
+    @NotNull
+    @Size(min=5, max=500)
     private String texto;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    //private LocalDateTime date = LocalDateTime.now();
     private Date date = new java.sql.Date(System.currentTimeMillis());
 
     public Long getId() {
