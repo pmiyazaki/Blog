@@ -1,12 +1,15 @@
 package com.DigitalHouse.blog.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
+
 @Entity
-@Table(name="")
+@Table(name="postagem")
 public class Postagem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +26,14 @@ public class Postagem {
     @Temporal(TemporalType.TIMESTAMP)
     //private LocalDateTime date = LocalDateTime.now();
     private Date data = new java.sql.Date(System.currentTimeMillis());
+
+    @ManyToOne
+    @JsonIgnoreProperties("postagem") //evitar um problema - recursividade
+    private Tema tema;
+
+    public Tema getTema() {
+        return tema;
+    }
 
     public Long getId() {
         return id;
