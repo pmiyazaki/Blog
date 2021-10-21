@@ -2,7 +2,6 @@ package com.DigitalHouse.blog.controller;
 
 import com.DigitalHouse.blog.model.UserLogin;
 import com.DigitalHouse.blog.model.Usuario;
-import com.DigitalHouse.blog.repository.UsuarioRepository;
 import com.DigitalHouse.blog.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
